@@ -213,6 +213,7 @@ static NSString* const kDefaultLoadedTimeKey = @"RKRequestTTModelDefaultLoadedTi
 // public
 
 - (void)load {
+    /*
     Class managedObjectClass = NSClassFromString(@"NSManagedObject");
 	RKManagedObjectStore* store = [RKObjectManager sharedManager].objectStore;
 	NSFetchRequest* cacheFetchRequest = nil;
@@ -223,11 +224,11 @@ static NSString* const kDefaultLoadedTimeKey = @"RKRequestTTModelDefaultLoadedTi
     // Reset in case we are reusing the object loader (model was reloaded).
     [self.objectLoader reset];
     
-	if (!store.managedObjectCache || !cacheFetchRequest || _cacheLoaded) {
+	if (!store.managedObjectCache || !cacheFetchRequest || _cacheLoaded) { */
 		_isLoading = YES;
 		[self didStartLoad];
 		[self.objectLoader send];
-	} else if (cacheFetchRequest && !_cacheLoaded && managedObjectClass) {
+	/*} else if (cacheFetchRequest && !_cacheLoaded && managedObjectClass) {
         NSArray* objects = [managedObjectClass objectsWithFetchRequest:cacheFetchRequest];
         if ([objects count] > 0 && NO == [self isOutdated]) {
             _cacheLoaded = YES;
@@ -237,7 +238,7 @@ static NSString* const kDefaultLoadedTimeKey = @"RKRequestTTModelDefaultLoadedTi
             [self didStartLoad];
             [self.objectLoader send];
         }
-	}
+	}*/
 }
 
 @end
